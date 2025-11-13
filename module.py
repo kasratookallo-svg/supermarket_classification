@@ -16,6 +16,9 @@ class Product :
      #   return self.expire_date >= other.expire_date
 
     def is_valid(self):
+        if not type(self.product_id ) == int and self.product_id > 0:
+            raise NameError("Invalid product ID")
+
         if not re.match(r"^[a-zA-Z\s]{3,30}$", self.name):
             raise NameError("Invalid name!")
 

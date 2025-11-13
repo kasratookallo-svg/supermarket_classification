@@ -3,14 +3,14 @@ from tkinter import messagebox
 from module import *
 from datetime import datetime, date
 from tkinter import ttk
-#from persiantools.digits import to_word
+
 from module import Product
 
 product_list = []
 
 
 def reset_form():
-    id.set(len(product_list) + 1)
+    id.set(len(product_list)+1)
     name.set("")
     brand.set("")
     quantity.set(0)
@@ -22,7 +22,6 @@ def save():
     try:
         product = Product(id.get(), name.get(), brand.get(), quantity.get(), price.get(), expire_date.get())
         product.is_valid()
-        product_list.append(product)
         product_list.append(product)
         table.insert("", END, values=product.to_tuple())
         reset_form()
@@ -48,7 +47,7 @@ window.geometry("820x370")
 # id
 Label(window, text="Id").place(x=30, y=30)
 id = IntVar()
-Entry(window, textvariable=id, state="readonly").place(x=150, y=30)
+Entry(window, textvariable=id).place(x=150, y=30)
 
 # name
 Label(window, text="Name").place(x=30, y=70)
